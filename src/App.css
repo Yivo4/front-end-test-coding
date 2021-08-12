@@ -1,0 +1,12 @@
+li>a {
+  text-decoration: none;
+  color: black;
+}
+.card {
+  width: 18rem;
+  margin: auto;
+}
+.list-group-item {
+  width: 100%;
+  margin: 0;
+}
