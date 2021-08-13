@@ -2,14 +2,8 @@
     max-width: 60%;
     margin: auto;
 }
-.searchresult {
-    max-width: 50%;
-    margin: auto;
-}
-.adressCard {
-    font-size: 50px;
-}
-p {
-    width: fit-content;
-}
-
+@media only screen and (max-width:575px){
+    .row>p {
+      width: auto;
+    }
+  }

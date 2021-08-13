@@ -1,12 +1,39 @@
 li>a {
   text-decoration: none;
-  color: black;
+  color: #212529;
 }
-.card {
-  width: 18rem;
+.detail {
+  max-width: 18rem;
   margin: auto;
 }
 .list-group-item {
   width: 100%;
   margin: 0;
+  box-shadow: 0 0 3rem #f8f9fa86;
+} 
+.dark {
+  background-color: #212529;
+  color:#f8f9fa;
+}
+.light {
+  background-color:#f8f9fa;
+  color: #212529;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-weight: normal;
+}
+.searchresult {
+  max-width: 50%;
+  margin: auto;
+}
+@media only screen and (max-width:990px){
+  .searchresult {
+      max-width: 70%;
+      margin: auto;
+  }
+}
+@media only screen and (max-width:767px){
+  .searchresult {
+      max-width: 80%;
+      margin: auto;
+  }
 }

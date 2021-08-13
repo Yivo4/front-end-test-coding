@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {Form, Button, Row, Col} from 'react-bootstrap';
+import {Form, Row, Col} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faGithubAlt } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,13 +14,13 @@ const SearchBar = () => {
     const [users, setUsers] = useState([]);
     const [show, setShow] = useState(false)
     
-
     const getUsers = async (name) =>{
         setShow(true)
         await axios.get(`https://api.github.com/search/users?q=${name}`)
         .then(response=>{
             setUsers(response.data.items)
             setShow(false)
+            console.log(response.data.items)
         })
     };
     function handleSubmit(e) {
@@ -34,7 +34,6 @@ const SearchBar = () => {
         }
     }
 
-    
     return (
         <>
             <ToastContainer/>
@@ -49,7 +48,7 @@ const SearchBar = () => {
                                 <input type="search" className="form-control" placeholder="Search User by name..." onChange={(e => {setSearchText(e.target.value)})}/> 
                             </Col>
                             <Col xs="auto">
-                                <Button type="submit" className="form-control btn btn-success"><FontAwesomeIcon  icon={faSearch} /></Button>
+                                <button type="submit" className="form-control btn btn-outline-light"><FontAwesomeIcon  icon={faSearch} /></button>
                             </Col>                          
                         </Row>
                     </Form>
@@ -62,9 +61,9 @@ const SearchBar = () => {
                             users.slice(0,10).map((user, index)=>
                                 <li key={index} className="list-group-item list-group-item-action searchresult">
                                     <Link to={`/users/${user.login}`} className="row">
-                                        <FontAwesomeIcon  icon={faAddressCard} className="adressCard col-sm"/>
-                                        <p className="col-sm pt-3">Name: {user.login}</p>
-                                        <p className="col-sm pt-3">Id: {user.id}</p> 
+                                        <img src={user.avatar_url} alt={user.login} id="avatar" className="col-2 rounded-circle"></img>
+                                        <p className="col-sm my-auto"><strong>{user.login}</strong> </p>
+                                        <p className="col-sm my-auto"><strong>ID: {user.id}</strong></p> 
                                     </Link>
                                 </li>    
                             )

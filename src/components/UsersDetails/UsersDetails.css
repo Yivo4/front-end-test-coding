@@ -1,6 +1,20 @@
-
 .githubIcon {
     position: absolute;
     top: 40%;
     left: 50%;
+}
+.imgAvatar {
+    width: 18rem;
+}
+.boxShadow {
+    box-shadow: 0 0 1rem #f8f9fa86;
+}
+.repoBox {
+    width: 60%;
+    margin: auto;
+}
+.language {
+    background-color: #ffc107;
+    width: fit-content;
+    padding: 3px 5px;
 }
